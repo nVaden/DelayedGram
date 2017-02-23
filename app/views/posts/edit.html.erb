@@ -6,5 +6,13 @@
 		  	<%= f.input :caption %>
 		  	<%= f.button :submit %>
   		<% end %>
+  		<div align="center" class="edit">
+  			<div class="button edit-button">
+  				<%= link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this?"} %>
+  			</div>
+  			<div class="button edit-button">
+  				<%= link_to "Cancel", posts_path %>
+  			</div>
+  		</div>
   	</div>
  </div>
