@@ -1,5 +1,10 @@
-<%= simple_form_for @post do |f| %>
+<div class="row">
+	<div class="twelve columns post-form">
+	<%= simple_form_for @post do |f| %>
+
   <%= f.input :image %>
   <%= f.input :caption %>
   <%= f.button :submit %>
   <% end %>
+  </div>
+ </div>

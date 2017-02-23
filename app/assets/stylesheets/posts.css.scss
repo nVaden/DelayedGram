@@ -1,3 +1,15 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.post-form {
+	text-align:center;
+	margin-top: 100px;
+	background-color: rgba(70,70,100,.2);
+}
+.navbar-header {
+	background-color:rgba(70,70,100,.2);
+}
+.container {
+	width:1280px;
+}
+.post-view {
+	text-align:center;
+	color:rgb(70,70,100);
+}
