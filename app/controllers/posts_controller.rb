@@ -8,26 +8,29 @@ class PostsController < ApplicationController
 	end
 	def create
 		if @post = Post.create(post_params)
+		flash[:success] = "Your post has been created!"
 		redirect_to posts_path
 		else
+			flash.now[:alert] = "Your new post couldn't be created, try again noob!"
 			render :new
 		end
 	end
 	def show
-		@post = Post.find(params[:id])
-
 	end
+
 	def edit
-		@post = Post.find(params[:id])
 	end
 
 	def update
-		@post = Post.find(params[:id])
-		@post.update(post_params)
-		redirect_to(post_path(@post))
+		if @post.update(post_params)
+			flash[:success] = "Post updated."
+			redirect_to(post_path(@post))
+		else
+			flash.now[:alert] = "Update failed, what is wrong with you?"
+		end
 	end
+
 	def destroy
-		@post = Post.find(params[:id])
 		@post.destroy
 		redirect_to posts_path
 	end

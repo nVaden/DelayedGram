@@ -36,6 +36,7 @@ gem 'paperclip', '~> 4.2'
 
 gem 'simple_form', '~> 3.1.0'
 gem 'skeleton-rails'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

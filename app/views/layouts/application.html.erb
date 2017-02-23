@@ -9,6 +9,9 @@
 <body>
 
   <div class="container">
+  	<% flash.each do |name, msg| %>
+  		<%= content_tag :div, msg, class: [:alert, alert_for(name)]%>
+  		<% end %>
     <div class="navbar-header row">
     	
 	    <div class="three columns">
@@ -23,9 +26,8 @@
 	   	<div class="three columns">
 	        <a class="button" href="/posts/new">Register</a>
 	    </div>
-	    
-	    
     </div>
+
 
 
 
