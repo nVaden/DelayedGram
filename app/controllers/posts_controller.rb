@@ -1,21 +1,24 @@
 class PostsController < ApplicationController 
-	before_action :authenticate_user!
-	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!, :set_post, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@posts = Post.all
 	end
 	def new
-		@post = Post.new
+		@post = current_user.posts.build
 	end
 	def create
-		if @post = Post.create(post_params)
-		flash[:success] = "Your post has been created!"
-		redirect_to posts_path
+		@post = current_user.posts.build(post_params)
+
+		if @post.save
+			flash[:success] = "Your post has been created!"
+			redirect_to posts_path
 		else
 			flash.now[:alert] = "Your new post couldn't be created, try again noob!"
 			render :new
 		end
 	end
+
 	def show
 	end
 
@@ -24,10 +27,11 @@ class PostsController < ApplicationController
 
 	def update
 		if @post.update(post_params)
-			flash[:success] = "Post updated."
+			flash.now[:success] = "Post updated."
 			redirect_to(post_path(@post))
 		else
 			flash.now[:alert] = "Update failed, what is wrong with you?"
+			render :new
 		end
 	end
 

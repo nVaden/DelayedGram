@@ -1,7 +1,19 @@
 <div class="row">
- <div class="four columns show">
-	<%= link_to (image_tag @post.image.url(:medium)), post_path %>
-	<%= @post.caption %>
-	<%= link_to "Edit Post", edit_post_path(@post) %>
- </div>
+	<div class="two columns">.</div>
+	<div class="four columns show">
+		<h3 class="username">
+			<%= @post.user.user_name %>
+		</h3>
+		<%= link_to (image_tag @post.image.url(:medium)), post_path %>
+		
+		<h6 class="caption-posts">
+			<%= @post.caption %>
+		</h6>
+		<% if @post.user.id == current_user.id %>
+
+		<%= link_to "Edit Post", edit_post_path(@post) %>
+		<% else %>
+		<%= link_to "Cancel", posts_path %>
+		<% end %>
+	</div>
 </div>
