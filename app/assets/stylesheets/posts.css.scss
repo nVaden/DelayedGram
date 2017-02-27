@@ -1,7 +1,26 @@
+
+.post-user {
+	font-family: 'Jockey One', sans-serif;
+	color: black;
+	font-size:40px;
+}
+.post-ind {
+	border:1px solid black;
+}
+.comments{
+	font-family: 'Padauk', sans-serif;
+	background-color:rgba(255,255,255,.1);
+	color:black;
+}
+
 .post-form {
 	text-align:center;
 	margin-top: 100px;
 	background-color: rgba(70,70,100,.2);
+}
+
+.regist {
+	text-align:center;
 }
 .navbar-header {
 	background-color:rgba(20,20,90,.7);
@@ -12,6 +31,7 @@
 .post-view {
 	text-align:center;
 	color:rgb(70,70,100);
+	background-color:rgba(20,60,20,.3);
 }
 .show {
 	text-align:center;
@@ -23,14 +43,15 @@
 .navbar-brand {
 	color:white;
 }
-.fixer {
-	background-color:rgba(50,50,70,.6);
+.form-actions {
+	background-color:black;
+	border-radius: 10px;
 }
-.username {
-	background-color:rgba(5,5,5,.1);
-}
-.caption-posts{
-	background-color:rgba(20,60,20,.3);
+
+.post-caption{
+	background-color:rgba(60,20,20,.2);
 	color:black;
-	font-family: helvetica;
+	font-family: 'Jockey One', sans-serif;
+	font-size:20px;
+	border-radius:40%;
 }

@@ -1,25 +1,24 @@
 
-    <div class="navbar-header row">
-	    <div class="three columns">
-	      <a class="navbar-brand button" href="/"><h4>Delayedgram</h4></a>
-	    </div>
-	    <div class="three columns">.</div>
-	    <% if user_signed_in? %>
-	    <div class="three columns button">
-	     <%= link_to "New Post", new_post_path %>    	    
-	    </div>
-	    <div class="three columns button">
-	      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-	    </div>
-	   
-	    <% else %>
-	    	<div class="navbar-header row">
-			   	<div class="three columns button">
-			       <%= link_to "Login", new_user_session_path %>
-			    </div>
-			   	<div class="three columns button">
-			       <%= link_to "Sign up", new_user_registration_path %>
-			    </div>
+<div class="navbar-header row">
+	<div class="offset-by-one three columns">
+		<a class="navbar-brand button" href="/"><h4>Delayedgram</h4></a>
+	</div>
+	<% if user_signed_in? %>
+	<div class="offset-by-two three columns button">
+		<%= link_to "New Post", new_post_path %>    	    
+	</div>
+	<div class="three columns button">
+		<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	</div>
 
-	    <% end %>
-    </div>
+	<% else %>
+	<div class="navbar-header row">
+		<div class="offset-by-two three columns button">
+			<%= link_to "Login", new_user_session_path %>
+		</div>
+		<div class="three columns button">
+			<%= link_to "Sign up", new_user_registration_path %>
+		</div>
+
+		<% end %>
+	</div>

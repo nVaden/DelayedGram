@@ -1,32 +1,35 @@
 
 <div class="row post-view">
 
-	<div class="two columns">.</div>
-	<div class="eight columns post-tag">
+	
+	<div class="offset-by-one ten columns post-main">
+
 		<% @posts.reverse.each do |post| %>
-		<h3 class="username">
+		<div class="post-user">
 			<%= post.user.user_name %>
-		</h3>
-		<%= link_to (image_tag post.image.url(:medium)), post_path(post) %>
-		<h6 class="caption-posts">
-			<%= post.user.user_name %>
+		</div>
+			<%= link_to (image_tag post.image.url(:medium)), post_path(post) %>
+		<div class="post-caption">
 			<%= post.caption %>
-		</h6>
-		<div class="comments">	
+			<h6>
+			posted <%= time_ago_in_words post.created_at %> ago.
+			</h6>
+		</div>
+		<div class="comments-section">	
 			<% if post.comments %>
+			<div class="comments">
 				<% post.comments.each do |comment| %>
-				<h5>
-					<%= comment.user.user_name %>
-				</h5>
-				<div>
-					<%= comment.content %>
+					<div><%= comment.user.user_name %></div>
+					 "<bold><%= comment.content %></bold>"
+					posted <%= time_ago_in_words comment.created_at %> ago.
 					<% if comment.user == current_user %>
 					  <%= link_to "Delete", post_comment_path(post, comment), method: :delete, data: { confirm: "fo real?" }%>
         		<% end %>
-				</div>
 				<% end %>
 			<% end %>
+			</div>
 		<%= form_for [post, post.comments.new] do |f| %>
+
 		<%= f.text_field :content, placeholder: 'Add a comment...'%>
 
 		<% end %> 
