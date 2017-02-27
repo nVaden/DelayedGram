@@ -20,10 +20,11 @@
 			<div class="comments">
 				<% post.comments.each do |comment| %>
 					<div><%= comment.user.user_name %></div>
-					 "<bold><%= comment.content %></bold>"
+					 "<%= comment.content %>"
 					posted <%= time_ago_in_words comment.created_at %> ago.
 					<% if comment.user == current_user %>
-					  <%= link_to "Delete", post_comment_path(post, comment), method: :delete, data: { confirm: "fo real?" }%>
+					  <%= link_to post_comment_path(post, comment), method: :delete, data: { confirm: "fo real?" } do 
+					  	image_tag "http://www.drodd.com/images14/x15.jpg", :size => '10x10' end%>
         		<% end %>
 				<% end %>
 			<% end %>
